@@ -1,6 +1,6 @@
-User.delete_all
-Project.delete_all
-Task.delete_all
+User.destroy_all
+Project.destroy_all
+Task.destroy_all
 
 user_array = []
 5.times do
@@ -21,7 +21,8 @@ project_array = []
     due_date: Faker::Date.forward(days: 23),
     status: "In Progress",
     category: Faker::Games::Heroes.specialty,
-    description: Faker::TvShows::GameOfThrones.quote
+    description: Faker::TvShows::GameOfThrones.quote,
+    progress: rand(1..100)
   )
   project_array.push create
 end
@@ -67,17 +68,24 @@ set3 = 0
 15.times do |i|
 
   if i <= 4
-    user_array[set1].tasks << task_array[i]
-    set1 += 1
+    task_array[i].users << user_array[0] << user_array[1] << user_array[2]
   elsif i > 4 && i <= 9
-    user_array[set2].tasks << task_array[i]
-    set2 += 1
+    task_array[i].users << user_array[2] << user_array[3] << user_array[4]
   else
-    user_array[set3].tasks << task_array[i]
-    set3 += 1
+    task_array[i].users << user_array[4] << user_array[0] << user_array[2]
   end
 end
 
 puts "Testing users >-< tasks associations:"
 puts "The task '#{ Task.first.name }' has users #{Task.first.users.pluck(:name).join(',')}"
 puts "The user #{ User.last.name } has tasks: #{ User.last.tasks.pluck(:name).join(', ') }"
+
+5.times do |i|
+
+    user_array[i].projects << project_array[0] << project_array[1] << project_array[2] << project_array[3] << project_array[4]
+
+end
+
+puts "Testing users >-< project associations:"
+puts "The project '#{ Project.first.name }' has users #{Project.first.users.pluck(:name).join(',')}"
+puts "The user #{ User.last.name } has projects: #{ User.last.projects.pluck(:name).join(', ') }"
