@@ -13686,3 +13686,1079 @@ Processing by ProjectsController#user_project_status as HTML
 Completed 200 OK in 25ms (Views: 13.9ms | ActiveRecord: 9.3ms | Allocations: 6332)
 
 
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96 AND `tasks`.`status` = 'In Progress'[0m
+Started GET "/project-user/undefined" for ::1 at 2021-03-20 22:57:06 +1100
+Started GET "/project-user-status/undefined/In%20Progress" for ::1 at 2021-03-20 22:57:06 +1100
+Started GET "/projects-user/101" for ::1 at 2021-03-20 22:57:06 +1100
+Processing by ProjectsController#user_project as HTML
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"undefined"}
+  Parameters: {"project_id"=>"undefined", "status"=>"In Progress"}
+Processing by ProjectsController#user_projects as HTML
+  Parameters: {"user"=>"101"}
+  [1m[36mProject Load (6.3ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 15.7ms | Allocations: 2420)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mProject Load (11.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+Completed 200 OK in 86ms (Views: 0.1ms | ActiveRecord: 23.2ms | Allocations: 50379)
+
+
+  [1m[36mProject Load (26.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 120ms (Views: 6.6ms | ActiveRecord: 46.3ms | Allocations: 77481)
+
+
+Started GET "/projects-user/101" for ::1 at 2021-03-20 23:00:14 +1100
+Started GET "/project-user-status/1/In%20Progress" for ::1 at 2021-03-20 23:00:14 +1100
+Processing by ProjectsController#user_projects as HTML
+  Parameters: {"user"=>"101"}
+Started GET "/project-user/1" for ::1 at 2021-03-20 23:00:14 +1100
+Processing by ProjectsController#user_project as HTML
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+  Parameters: {"project_id"=>"1", "status"=>"In Progress"}
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 1579)
+
+
+  [1m[36mProject Load (3.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (5.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (2.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mProject Load (31.0ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 31.0ms | Allocations: 8383)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (2.0ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 52ms (Views: 26.4ms | ActiveRecord: 20.2ms | Allocations: 12922)
+
+
+Started GET "/project-user/1" for ::1 at 2021-03-20 23:00:21 +1100
+Started GET "/projects-user/101" for ::1 at 2021-03-20 23:00:21 +1100
+Started GET "/project-user-status/1/In%20Progress" for ::1 at 2021-03-20 23:00:21 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"1"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"1", "status"=>"In Progress"}
+Processing by ProjectsController#user_projects as HTML
+  Parameters: {"user"=>"101"}
+  [1m[36mProject Load (2.0ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2425)
+
+
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.5ms | Allocations: 2200)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mProject Load (46.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (7.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (2.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (3.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 87ms (Views: 14.1ms | ActiveRecord: 63.9ms | Allocations: 81938)
+
+
+Started GET "/project-user-status/1/New" for ::1 at 2021-03-20 23:00:53 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"1", "status"=>"New"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.1ms | Allocations: 1421)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:30:in `user_project_status'
+Started GET "/project-user-status/1/In%20Progress" for ::1 at 2021-03-20 23:00:54 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"1", "status"=>"In Progress"}
+  [1m[36mProject Load (2.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.9ms | Allocations: 1420)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:30:in `user_project_status'
+Started GET "/project-user-status/1/Complete" for ::1 at 2021-03-20 23:00:55 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"1", "status"=>"Complete"}
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.2ms | Allocations: 1420)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:30:in `user_project_status'
+Started GET "/project-user/98" for ::1 at 2021-03-20 23:01:00 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"98"}
+Started GET "/project-user-status/98/Complete" for ::1 at 2021-03-20 23:01:00 +1100
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+Processing by ProjectsController#user_project_status as HTML
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  Parameters: {"project_id"=>"98", "status"=>"Complete"}
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+Completed 200 OK in 15ms (Views: 7.9ms | ActiveRecord: 3.2ms | Allocations: 3641)
+
+
+  [1m[36mTask Load (3.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98 AND `tasks`.`status` = 'Complete'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 12ms (Views: 3.4ms | ActiveRecord: 5.2ms | Allocations: 2962)
+
+
+Started GET "/project-user/undefined" for ::1 at 2021-03-20 23:01:48 +1100
+Started GET "/project-user-status/undefined/In%20Progress" for ::1 at 2021-03-20 23:01:48 +1100
+Started GET "/projects-user/101" for ::1 at 2021-03-20 23:01:48 +1100
+Processing by ProjectsController#user_project as HTML
+Processing by ProjectsController#user_project_status as HTML
+Processing by ProjectsController#user_projects as HTML
+  Parameters: {"project_id"=>"undefined"}
+  Parameters: {"project_id"=>"undefined", "status"=>"In Progress"}
+  Parameters: {"user"=>"101"}
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 1158)
+
+
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.5ms | Allocations: 2308)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mUser Load (48.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+  [1m[36mProject Load (8.2ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 89ms (Views: 22.8ms | ActiveRecord: 64.7ms | Allocations: 90917)
+
+
+Started GET "/project-user/96" for ::1 at 2021-03-20 23:02:33 +1100
+Started GET "/project-user-status/96/In%20Progress" for ::1 at 2021-03-20 23:02:33 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"96"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"96", "status"=>"In Progress"}
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  [1m[36mProject Load (2.3ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96 AND `tasks`.`status` = 'In Progress'[0m
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+Completed 200 OK in 17ms (Views: 7.0ms | ActiveRecord: 3.1ms | Allocations: 4098)
+
+
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 286[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 291[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 296[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 28ms (Views: 13.3ms | ActiveRecord: 10.4ms | Allocations: 8817)
+
+
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:02:37 +1100
+Started GET "/project-user/99" for ::1 at 2021-03-20 23:02:37 +1100
+Processing by ProjectsController#user_project_status as HTML
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  Parameters: {"project_id"=>"99"}
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 11ms (Views: 5.8ms | ActiveRecord: 2.7ms | Allocations: 3577)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 24ms (Views: 12.0ms | ActiveRecord: 7.3ms | Allocations: 8870)
+
+
+Started GET "/project-user/98" for ::1 at 2021-03-20 23:02:38 +1100
+Started GET "/project-user-status/98/In%20Progress" for ::1 at 2021-03-20 23:02:38 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"98"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"98", "status"=>"In Progress"}
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mTask Load (2.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98 AND `tasks`.`status` = 'In Progress'[0m
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 11ms (Views: 3.8ms | ActiveRecord: 3.4ms | Allocations: 3622)
+
+
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 288[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 293[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 298[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 34ms (Views: 15.4ms | ActiveRecord: 14.9ms | Allocations: 8811)
+
+
+Started GET "/project-user/96" for ::1 at 2021-03-20 23:02:39 +1100
+Started GET "/project-user-status/96/In%20Progress" for ::1 at 2021-03-20 23:02:39 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"96"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"96", "status"=>"In Progress"}
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (2.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 15ms (Views: 8.2ms | ActiveRecord: 3.5ms | Allocations: 3623)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 286[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 291[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 296[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 27ms (Views: 12.4ms | ActiveRecord: 7.5ms | Allocations: 8768)
+
+
+Started GET "/project-user/100" for ::1 at 2021-03-20 23:02:41 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"100"}
+Started GET "/project-user-status/100/In%20Progress" for ::1 at 2021-03-20 23:02:41 +1100
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 100 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"100", "status"=>"In Progress"}
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 100 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 200 OK in 12ms (Views: 5.5ms | ActiveRecord: 3.2ms | Allocations: 3248)
+
+
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 290[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 295[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 300[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 24ms (Views: 10.0ms | ActiveRecord: 7.5ms | Allocations: 7993)
+
+
+Started GET "/project-user-status/97/In%20Progress" for ::1 at 2021-03-20 23:03:21 +1100
+Started GET "/project-user/97" for ::1 at 2021-03-20 23:03:21 +1100
+Processing by ProjectsController#user_project_status as HTML
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"97", "status"=>"In Progress"}
+  Parameters: {"project_id"=>"97"}
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 97 LIMIT 1[0m
+  [1m[36mProject Load (2.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 97 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mTask Load (2.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97 AND `tasks`.`status` = 'In Progress'[0m
+  [1m[36mTask Load (2.2ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 13ms (Views: 5.1ms | ActiveRecord: 4.3ms | Allocations: 3573)
+
+
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 287[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 292[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 297[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 25ms (Views: 12.4ms | ActiveRecord: 8.8ms | Allocations: 8869)
+
+
+Started GET "/project-user/99" for ::1 at 2021-03-20 23:03:22 +1100
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:03:22 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"99"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (2.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 12ms (Views: 5.1ms | ActiveRecord: 3.8ms | Allocations: 3863)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 22ms (Views: 11.6ms | ActiveRecord: 7.1ms | Allocations: 8768)
+
+
+Started GET "/project-user/98" for ::1 at 2021-03-20 23:03:22 +1100
+Started GET "/project-user-status/98/In%20Progress" for ::1 at 2021-03-20 23:03:22 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"98"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"98", "status"=>"In Progress"}
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  [1m[36mTask Load (2.0ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98 AND `tasks`.`status` = 'In Progress'[0m
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 2.6ms | Allocations: 3183)
+
+
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 288[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 293[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 298[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 26ms (Views: 12.8ms | ActiveRecord: 8.1ms | Allocations: 8811)
+
+
+Started GET "/project-user-status/98/Complete" for ::1 at 2021-03-20 23:03:24 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"98", "status"=>"Complete"}
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98 AND `tasks`.`status` = 'Complete'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 3.2ms | Allocations: 1599)
+
+
+Started GET "/project-user-status/98/In%20Progress" for ::1 at 2021-03-20 23:03:25 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"98", "status"=>"In Progress"}
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (1.9ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 288[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 293[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 298[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 28ms (Views: 16.2ms | ActiveRecord: 9.2ms | Allocations: 6329)
+
+
+Started GET "/project-user/96" for ::1 at 2021-03-20 23:03:26 +1100
+Started GET "/project-user-status/96/In%20Progress" for ::1 at 2021-03-20 23:03:26 +1100
+Processing by ProjectsController#user_project as HTML
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"96"}
+  Parameters: {"project_id"=>"96", "status"=>"In Progress"}
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mTask Load (2.2ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96 AND `tasks`.`status` = 'In Progress'[0m
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+Completed 200 OK in 13ms (Views: 5.7ms | ActiveRecord: 3.5ms | Allocations: 4083)
+
+
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 286[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 291[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 296[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 27ms (Views: 13.7ms | ActiveRecord: 9.8ms | Allocations: 8815)
+
+
+Started GET "/projects-user/101" for ::1 at 2021-03-20 23:03:28 +1100
+Processing by ProjectsController#user_projects as HTML
+Started GET "/project-user/undefined" for ::1 at 2021-03-20 23:03:28 +1100
+  Parameters: {"user"=>"101"}
+Started GET "/project-user-status/undefined/In%20Progress" for ::1 at 2021-03-20 23:03:28 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"undefined"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"undefined", "status"=>"In Progress"}
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+  [1m[36mProject Load (2.0ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 969)
+
+
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 2.0ms | Allocations: 2980)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 61ms (Views: 47.0ms | ActiveRecord: 9.1ms | Allocations: 61307)
+
+
+Started GET "/project-user/99" for ::1 at 2021-03-20 23:03:34 +1100
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:03:34 +1100
+Processing by ProjectsController#user_project as HTML
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99"}
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (3.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  [1m[36mTask Load (2.0ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 17ms (Views: 9.0ms | ActiveRecord: 4.6ms | Allocations: 3605)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 30ms (Views: 12.6ms | ActiveRecord: 8.8ms | Allocations: 8817)
+
+
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:05:19 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (2.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 29ms (Views: 6.4ms | ActiveRecord: 15.1ms | Allocations: 6331)
+
+
+Started GET "/projects-user/101" for ::1 at 2021-03-20 23:05:22 +1100
+Started GET "/project-user-status/undefined/In%20Progress" for ::1 at 2021-03-20 23:05:22 +1100
+Processing by ProjectsController#user_projects as HTML
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"undefined", "status"=>"In Progress"}
+  Parameters: {"user"=>"101"}
+Started GET "/project-user/undefined" for ::1 at 2021-03-20 23:05:22 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"undefined"}
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.8ms | Allocations: 2569)
+
+
+  
+NoMethodError (undefined method `tasks' for nil:NilClass):
+  
+app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+Completed 200 OK in 58ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 49573)
+
+
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 74ms (Views: 8.5ms | ActiveRecord: 7.7ms | Allocations: 62408)
+
+
+Started GET "/project-user/99" for ::1 at 2021-03-20 23:05:27 +1100
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:05:27 +1100
+Processing by ProjectsController#user_project as HTML
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99"}
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  [1m[36mProject Load (3.0ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (2.2ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  [1m[36mTask Load (2.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 16ms (Views: 6.7ms | ActiveRecord: 3.4ms | Allocations: 3629)
+
+
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 32ms (Views: 15.1ms | ActiveRecord: 11.7ms | Allocations: 8818)
+
+
+Started GET "/project-user/98" for ::1 at 2021-03-20 23:05:32 +1100
+Processing by ProjectsController#user_project as HTML
+Started GET "/project-user-status/98/In%20Progress" for ::1 at 2021-03-20 23:05:32 +1100
+  Parameters: {"project_id"=>"98"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"98", "status"=>"In Progress"}
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mProject Load (2.2ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+Completed 200 OK in 11ms (Views: 5.5ms | ActiveRecord: 3.3ms | Allocations: 3254)
+
+
+  [1m[36mTask Load (2.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 288[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 293[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 298[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 23ms (Views: 10.0ms | ActiveRecord: 8.2ms | Allocations: 8618)
+
+
+Started GET "/project-user/97" for ::1 at 2021-03-20 23:05:33 +1100
+Started GET "/project-user-status/97/In%20Progress" for ::1 at 2021-03-20 23:05:33 +1100
+Processing by ProjectsController#user_project as HTML
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"97"}
+  Parameters: {"project_id"=>"97", "status"=>"In Progress"}
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 97 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 97 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 287[0m
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 3.6ms | Allocations: 4260)
+
+
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 292[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 297[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 25ms (Views: 15.6ms | ActiveRecord: 6.7ms | Allocations: 8816)
+
+
+Started GET "/project-user/96" for ::1 at 2021-03-20 23:05:34 +1100
+Started GET "/project-user-status/96/In%20Progress" for ::1 at 2021-03-20 23:05:34 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"96"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"96", "status"=>"In Progress"}
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (2.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 12ms (Views: 6.4ms | ActiveRecord: 3.1ms | Allocations: 3614)
+
+
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 286[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 291[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 296[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 24ms (Views: 10.6ms | ActiveRecord: 7.5ms | Allocations: 8815)
+
+
+Started GET "/project-user/99" for ::1 at 2021-03-20 23:05:36 +1100
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:05:36 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"99"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (3.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  [1m[36mTask Load (2.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+Completed 200 OK in 17ms (Views: 9.3ms | ActiveRecord: 4.6ms | Allocations: 4338)
+
+
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 26ms (Views: 11.0ms | ActiveRecord: 9.0ms | Allocations: 8768)
+
+
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:07:02 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 15ms (Views: 6.0ms | ActiveRecord: 7.5ms | Allocations: 6331)
+
+
+Started GET "/projects-user/101" for ::1 at 2021-03-20 23:07:05 +1100
+Processing by ProjectsController#user_projects as HTML
+Started GET "/project-user/undefined" for ::1 at 2021-03-20 23:07:05 +1100
+  Parameters: {"user"=>"101"}
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"undefined"}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 1623)
+
+
+  [1m[36mProject Load (1.3ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (14.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 37ms (Views: 10.8ms | ActiveRecord: 23.6ms | Allocations: 10181)
+
+
+Started GET "/projects-user/101" for ::1 at 2021-03-20 23:07:49 +1100
+Started GET "/project-user/undefined" for ::1 at 2021-03-20 23:07:49 +1100
+Processing by ProjectsController#user_projects as HTML
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"user"=>"101"}
+  Parameters: {"project_id"=>"undefined"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 898)
+
+
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.1ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 20ms (Views: 8.2ms | ActiveRecord: 8.1ms | Allocations: 9944)
+
+
+Started GET "/project-user/undefined" for ::1 at 2021-03-20 23:10:43 +1100
+Started GET "/projects-user/101" for ::1 at 2021-03-20 23:10:43 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"undefined"}
+Processing by ProjectsController#user_projects as HTML
+  Parameters: {"user"=>"101"}
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 951)
+
+
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+  [1m[36mProject Load (10.6ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (12.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 45ms (Views: 12.2ms | ActiveRecord: 29.2ms | Allocations: 9890)
+
+
+Started GET "/projects-user/101" for ::1 at 2021-03-20 23:13:28 +1100
+Started GET "/project-user/undefined" for ::1 at 2021-03-20 23:13:28 +1100
+Processing by ProjectsController#user_projects as HTML
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"user"=>"101"}
+  Parameters: {"project_id"=>"undefined"}
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:17:in `user_projects'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 1005)
+
+
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` INNER JOIN `projects_users` ON `projects`.`id` = `projects_users`.`project_id` WHERE `projects_users`.`user_id` = 101[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (9.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (2.2ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (0.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+  [1m[36mTask Load (4.0ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  ↳ app/controllers/projects_controller.rb:18:in `user_projects'
+Completed 200 OK in 33ms (Views: 9.5ms | ActiveRecord: 20.9ms | Allocations: 9945)
+
+
+Started GET "/project-user/99" for ::1 at 2021-03-20 23:13:34 +1100
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:13:34 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"99"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (2.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  [1m[36mTask Load (2.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 14ms (Views: 6.3ms | ActiveRecord: 3.7ms | Allocations: 3885)
+
+
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 25ms (Views: 12.8ms | ActiveRecord: 9.0ms | Allocations: 8768)
+
+
+Started GET "/project-user-status/99/New" for ::1 at 2021-03-20 23:14:12 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"New"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'New'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 6ms (Views: 1.5ms | ActiveRecord: 2.4ms | Allocations: 1598)
+
+
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:14:12 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 22ms (Views: 12.4ms | ActiveRecord: 7.1ms | Allocations: 6331)
+
+
+Started GET "/project-user-status/99/Complete" for ::1 at 2021-03-20 23:14:13 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"Complete"}
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (1.9ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'Complete'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 9ms (Views: 2.4ms | ActiveRecord: 3.4ms | Allocations: 1599)
+
+
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:14:14 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 27ms (Views: 14.8ms | ActiveRecord: 9.5ms | Allocations: 6332)
+
+
+Started GET "/project-user/99" for ::1 at 2021-03-20 23:14:19 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"99"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 2.5ms | Allocations: 2096)
+
+
+Started GET "/project-user/98" for ::1 at 2021-03-20 23:14:21 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"98"}
+Started GET "/project-user-status/98/In%20Progress" for ::1 at 2021-03-20 23:14:21 +1100
+Processing by ProjectsController#user_project_status as HTML
+  [1m[36mProject Load (2.3ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  Parameters: {"project_id"=>"98", "status"=>"In Progress"}
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  [1m[36mProject Load (1.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 98 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 200 OK in 12ms (Views: 4.8ms | ActiveRecord: 3.8ms | Allocations: 3076)
+
+
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 98 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 288[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 293[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 298[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 23ms (Views: 9.4ms | ActiveRecord: 7.0ms | Allocations: 8290)
+
+
+Started GET "/project-user/97" for ::1 at 2021-03-20 23:14:22 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"97"}
+Started GET "/project-user-status/97/In%20Progress" for ::1 at 2021-03-20 23:14:22 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"97", "status"=>"In Progress"}
+  [1m[36mProject Load (2.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 97 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mProject Load (2.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 97 LIMIT 1[0m
+  [1m[36mTask Load (1.7ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97[0m
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+Completed 200 OK in 13ms (Views: 6.4ms | ActiveRecord: 3.8ms | Allocations: 3403)
+
+
+  [1m[36mTask Load (3.0ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 97 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 287[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 292[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 297[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 25ms (Views: 10.4ms | ActiveRecord: 9.8ms | Allocations: 8622)
+
+
+Started GET "/project-user/96" for ::1 at 2021-03-20 23:14:23 +1100
+Started GET "/project-user-status/96/In%20Progress" for ::1 at 2021-03-20 23:14:23 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"96"}
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"96", "status"=>"In Progress"}
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 96 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+  [1m[36mTask Load (2.8ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  [1m[36mTask Load (2.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 96 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 11ms (Views: 4.8ms | ActiveRecord: 3.9ms | Allocations: 3625)
+
+
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 286[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 291[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 296[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 23ms (Views: 11.9ms | ActiveRecord: 7.5ms | Allocations: 8816)
+
+
+Started GET "/project-user/100" for ::1 at 2021-03-20 23:14:24 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"100"}
+Started GET "/project-user-status/100/In%20Progress" for ::1 at 2021-03-20 23:14:24 +1100
+Processing by ProjectsController#user_project_status as HTML
+  [1m[36mProject Load (2.6ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 100 LIMIT 1[0m
+  Parameters: {"project_id"=>"100", "status"=>"In Progress"}
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100[0m
+  [1m[36mProject Load (1.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 100 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 200 OK in 15ms (Views: 7.1ms | ActiveRecord: 4.0ms | Allocations: 3752)
+
+
+  [1m[36mTask Load (2.4ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 100 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 290[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 295[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 300[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 27ms (Views: 12.4ms | ActiveRecord: 8.9ms | Allocations: 8294)
+
+
+Started GET "/project-user/99" for ::1 at 2021-03-20 23:14:26 +1100
+Processing by ProjectsController#user_project as HTML
+  Parameters: {"project_id"=>"99"}
+Started GET "/project-user-status/99/In%20Progress" for ::1 at 2021-03-20 23:14:26 +1100
+Processing by ProjectsController#user_project_status as HTML
+  Parameters: {"project_id"=>"99", "status"=>"In Progress"}
+  [1m[36mProject Load (2.6ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  ↳ app/controllers/projects_controller.rb:21:in `user_project'
+  [1m[36mProject Load (1.9ms)[0m  [1m[34mSELECT `projects`.* FROM `projects` WHERE `projects`.`id` = 99 LIMIT 1[0m
+  [1m[36mTask Load (1.6ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99[0m
+  ↳ app/controllers/projects_controller.rb:22:in `user_project'
+  ↳ app/controllers/projects_controller.rb:30:in `user_project_status'
+Completed 200 OK in 12ms (Views: 5.1ms | ActiveRecord: 4.2ms | Allocations: 3752)
+
+
+  [1m[36mTask Load (3.0ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`project_id` = 99 AND `tasks`.`status` = 'In Progress'[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 289[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 294[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 299[0m
+  ↳ app/controllers/projects_controller.rb:31:in `user_project_status'
+Completed 200 OK in 24ms (Views: 10.0ms | ActiveRecord: 9.3ms | Allocations: 8623)
+
+
