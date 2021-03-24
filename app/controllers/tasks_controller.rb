@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
 
   # GET /tasks or /tasks.json
   def index
@@ -17,6 +18,23 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+  end
+
+  def create_task
+    task = Task.create(
+      name: params[:name],
+      due_date: params[:due_date],
+      status: params[:status],
+      progress: params[:progress],
+      category: params[:category],
+      description: params[:description],
+      project_id: params[:project_id]
+    )
+    params[:assignees].each do |assignee|
+      task.users << User.find_by(id: assignee)
+    end
+
+    render json: task, include: ['users']
   end
 
   # POST /tasks or /tasks.json
