@@ -34,11 +34,21 @@ task_array = []
     start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
     due_date: Faker::Date.forward(days: 23),
     status: "In Progress",
-    description: Faker::TvShows::GameOfThrones.quote
+    description: Faker::TvShows::GameOfThrones.quote,
+    progress: rand(1..100)
   )
   task_array.push create
 end
 puts "15 Tasks Created"
+
+task_category_array = []
+5.times do
+  create = TaskCategory.create!(
+    name: Faker::Beer.brand
+  )
+  task_category_array.push(create)
+end
+puts "5 Task categories Created"
 
 # p task_array
 set1 = 0
@@ -89,3 +99,24 @@ end
 puts "Testing users >-< project associations:"
 puts "The project '#{ Project.first.name }' has users #{Project.first.users.pluck(:name).join(',')}"
 puts "The user #{ User.last.name } has projects: #{ User.last.projects.pluck(:name).join(', ') }"
+
+set1 = 0
+set2 = 0
+set3 = 0
+15.times do |i|
+
+  if i <= 4
+    task_category_array[set1].tasks << task_array[i]
+    set1 += 1
+  elsif i > 4 && i <= 9
+    task_category_array[set2].tasks << task_array[i]
+    set2 += 1
+  else
+    task_category_array[set3].tasks << task_array[i]
+    set3 += 1
+  end
+end
+
+puts "Testing task -< task_category:"
+puts "The task '#{ Task.first.name }' has category #{Task.first.task_category.name}"
+puts "The category #{ TaskCategory.last.name } has task: #{ TaskCategory.last.tasks.pluck(:name).join(', ') }"

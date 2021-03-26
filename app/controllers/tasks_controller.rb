@@ -37,6 +37,11 @@ class TasksController < ApplicationController
     render json: task, include: ['users']
   end
 
+  def delete_task
+    task = Task.find(params[:task_id])
+    task.destroy
+  end
+
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
