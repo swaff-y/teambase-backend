@@ -1,6 +1,7 @@
 User.destroy_all
 Project.destroy_all
 Task.destroy_all
+TaskCategory.destroy_all
 
 user_array = []
 5.times do

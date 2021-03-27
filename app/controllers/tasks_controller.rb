@@ -33,13 +33,19 @@ class TasksController < ApplicationController
     params[:assignees].each do |assignee|
       task.users << User.find_by(id: assignee)
     end
+    TaskCategory.find_by(id: params[:category]).tasks << task
 
-    render json: task, include: ['users']
+    render json: task, include: ['users','task_category']
   end
 
   def delete_task
     task = Task.find(params[:task_id])
     task.destroy
+  end
+  
+  def read_task
+    task = Task.find(params[:task_id])
+    render json: task, include: ['users','task_category']
   end
 
   # POST /tasks or /tasks.json
