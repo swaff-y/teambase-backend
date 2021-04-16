@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   post '/task-create/:project_id' => 'tasks#create_task'
   delete '/task-delete/:task_id' => 'tasks#delete_task'
   get '/task-read/:task_id' => 'tasks#read_task'
+  post '/task-update/:task_id' => 'tasks#update_task'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -20,34 +20,6 @@ class TasksController < ApplicationController
   def edit
   end
 
-  def create_task
-    task = Task.create(
-      name: params[:name],
-      due_date: params[:due_date],
-      status: params[:status],
-      progress: params[:progress],
-      category: params[:category],
-      description: params[:description],
-      project_id: params[:project_id]
-    )
-    params[:assignees].each do |assignee|
-      task.users << User.find_by(id: assignee)
-    end
-    TaskCategory.find_by(id: params[:category]).tasks << task
-
-    render json: task, include: ['users','task_category']
-  end
-
-  def delete_task
-    task = Task.find(params[:task_id])
-    task.destroy
-  end
-  
-  def read_task
-    task = Task.find(params[:task_id])
-    render json: task, include: ['users','task_category']
-  end
-
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
@@ -85,6 +57,63 @@ class TasksController < ApplicationController
     end
   end
 
+  def create_task
+    task = Task.create(
+      name: params[:name],
+      due_date: params[:due_date],
+      status: params[:status],
+      progress: params[:progress],
+      category: params[:category],
+      description: params[:description],
+      project_id: params[:project_id]
+    )
+
+    params[:assignees].each do |assignee|
+      task.users << User.find_by(id: assignee)
+    end
+    TaskCategory.find_by(id: params[:category]).tasks << task
+
+    render json: task, include: ['users','task_category']
+  end
+
+  def delete_task
+    task = Task.find(params[:task_id])
+    task.destroy
+  end
+
+  def read_task
+    task = Task.find(params[:task_id])
+    render json: task, include: ['users','task_category']
+  end
+
+  def update_task
+    task = Task.find(params[:task_id])
+
+    task.update(
+      name: params[:name],
+      due_date: params[:due_date],
+      status: params[:status],
+      progress: params[:progress],
+      category: params[:category],
+      description: params[:description],
+      project_id: params[:project_id]
+    )
+
+    TaskCategory.find_by(id: params[:category]).tasks << task
+
+    i = 0
+    params[:assignees].each do |assignee|
+      puts "+_+_+_+_+_+_+_+_+__+_"
+      p task.users[i].id
+      puts "+_+_+_+_+_+_+_+_+__+_"
+
+      task.users.delete User.find_by(id: assignee)
+
+      # task.users << User.find_by(id: assignee)
+      i+=1
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -93,6 +122,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:name, :start_date, :due_date, :status, :description, :project_id)
+      params.require(:task).permit(:name, :start_date, :due_date, :status, :description, :project_id, :assignees)
     end
 end
