@@ -69,7 +69,8 @@ class TasksController < ApplicationController
     )
 
     params[:assignees].each do |assignee|
-      task.users << User.find_by(id: assignee)
+      user = User.find_by(id: assignee)
+      task.users << user
     end
     TaskCategory.find_by(id: params[:category]).tasks << task
 
@@ -101,16 +102,18 @@ class TasksController < ApplicationController
 
     TaskCategory.find_by(id: params[:category]).tasks << task
 
-    i = 0
+    all_users = task.users.all
+    all_users.each do |user|
+      if user
+        task.users.delete user
+      end
+    end
+
     params[:assignees].each do |assignee|
-      puts "+_+_+_+_+_+_+_+_+__+_"
-      p task.users[i].id
-      puts "+_+_+_+_+_+_+_+_+__+_"
-
-      task.users.delete User.find_by(id: assignee)
-
-      # task.users << User.find_by(id: assignee)
-      i+=1
+      user = User.find_by(id: assignee)
+      if user
+        task.users << user
+      end
     end
   end
 
