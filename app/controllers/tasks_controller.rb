@@ -100,7 +100,10 @@ class TasksController < ApplicationController
       project_id: params[:project_id]
     )
 
-    TaskCategory.find_by(id: params[:category]).tasks << task
+    category = TaskCategory.find_by(id: params[:category])
+    if category
+      category.tasks << task
+    end
 
     all_users = task.users.all
     all_users.each do |user|
