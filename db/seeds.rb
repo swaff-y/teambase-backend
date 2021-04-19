@@ -19,7 +19,7 @@ project_array = []
 5.times do
   create = Project.create!(
     name: Faker::TvShows::GameOfThrones.character,
-    due_date: Faker::Date.forward(days: 23),
+    due_date: 1618826614013,
     status: "In Progress",
     category: Faker::Games::Heroes.specialty,
     description: Faker::TvShows::GameOfThrones.quote,
@@ -33,7 +33,7 @@ task_array = []
   create = Task.create!(
     name: Faker::TvShows::GameOfThrones.character,
     start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    due_date: Faker::Date.forward(days: 23),
+    due_date: 1618826614013,
     status: "In Progress",
     description: Faker::TvShows::GameOfThrones.quote,
     progress: rand(1..100)

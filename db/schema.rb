@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_095330) do
+ActiveRecord::Schema.define(version: 2021_04_19_101841) do
 
   create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.date "due_date"
     t.string "status"
     t.integer "progress"
     t.string "category"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "due_date"
   end
 
   create_table "projects_users", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2021_03_26_095330) do
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.date "start_date"
-    t.date "due_date"
     t.string "status"
     t.text "description"
     t.integer "project_id"
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_03_26_095330) do
     t.integer "progress"
     t.text "category"
     t.integer "task_category_id"
+    t.bigint "due_date"
   end
 
   create_table "tasks_users", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
