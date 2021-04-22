@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notes
   resources :task_categories
   resources :tasks
   root :to => 'pages#home'
@@ -15,5 +16,6 @@ Rails.application.routes.draw do
   delete '/task-delete/:task_id' => 'tasks#delete_task'
   get '/task-read/:task_id' => 'tasks#read_task'
   post '/task-update/:task_id' => 'tasks#update_task'
+  post '/note-create/:task_id' => 'notes#create_task'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

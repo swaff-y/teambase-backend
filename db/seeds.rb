@@ -1,6 +1,7 @@
 User.destroy_all
 Project.destroy_all
 Task.destroy_all
+Note.destroy_all
 TaskCategory.destroy_all
 
 user_array = []
@@ -41,6 +42,14 @@ task_array = []
   task_array.push create
 end
 puts "15 Tasks Created"
+note_array = []
+15.times do
+  create = Note.create!(
+    note: Faker::Lorem.paragraph(sentence_count: rand(1..4))
+  )
+  note_array.push create
+end
+puts "15 Notes Created"
 
 task_category_array = []
 5.times do
@@ -72,6 +81,49 @@ end
 puts "Testing projects -< tasks associations:"
 puts "The task '#{ Task.first.name }' is on project #{Task.first.project.name}"
 puts "The project #{ Project.last.name } has task: #{ Project.last.tasks.pluck(:name).join(', ') }"
+
+# p note_array
+set1 = 0
+set2 = 0
+set3 = 0
+15.times do |i|
+
+  if i <= 4
+    task_array[set1].notes << note_array[i]
+    set1 += 1
+  elsif i > 4 && i <= 9
+    task_array[set2].notes << note_array[i]
+    set2 += 1
+  else
+    task_array[set3].notes << note_array[i]
+    set3 += 1
+  end
+end
+
+puts "Testing note -< tasks associations:"
+puts "The note '#{ Note.first.note }' is on task #{Note.first.task.name}"
+puts "The task #{ Task.last.name } has note: #{ Task.last.notes.pluck(:note).join(', ') }"
+# p note_array
+set1 = 0
+set2 = 0
+set3 = 0
+15.times do |i|
+
+  if i <= 4
+    user_array[set1].notes << note_array[i]
+    set1 += 1
+  elsif i > 4 && i <= 9
+    user_array[set2].notes << note_array[i]
+    set2 += 1
+  else
+    user_array[set3].notes << note_array[i]
+    set3 += 1
+  end
+end
+
+puts "Testing note -< users associations:"
+puts "The note '#{ Note.first.note }' is on user #{Note.first.user.name}"
+puts "The user #{ User.last.name } has note: #{ User.last.notes.pluck(:note).join(', ') }"
 
 set1 = 0
 set2 = 0
