@@ -88,6 +88,7 @@ class ProjectsController < ApplicationController
     project.update(
       priority: params[:priority]
     )
+    render json: project, include: ['users']
   end
 
   private
