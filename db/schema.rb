@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_094320) do
+ActiveRecord::Schema.define(version: 2021_04_25_103820) do
 
   create_table "notes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_094320) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "due_date"
+    t.integer "priority"
   end
 
   create_table "projects_users", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_094320) do
     t.text "category"
     t.integer "task_category_id"
     t.bigint "due_date"
+    t.integer "priority"
   end
 
   create_table "tasks_users", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

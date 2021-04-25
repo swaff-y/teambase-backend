@@ -17,27 +17,29 @@ user_array = []
 end
 puts "5 Users Created"
 project_array = []
-5.times do
+5.times do |i|
   create = Project.create!(
     name: Faker::TvShows::GameOfThrones.character,
     due_date: 1618826614013,
     status: "In Progress",
     category: Faker::Games::Heroes.specialty,
     description: Faker::TvShows::GameOfThrones.quote,
-    progress: rand(1..100)
+    progress: rand(1..100),
+    priority: i
   )
   project_array.push create
 end
 puts "5 Projects Created"
 task_array = []
-15.times do
+15.times do |i|
   create = Task.create!(
     name: Faker::TvShows::GameOfThrones.character,
     start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
     due_date: 1618826614013,
     status: "In Progress",
     description: Faker::TvShows::GameOfThrones.quote,
-    progress: rand(1..100)
+    progress: rand(1..100),
+    priority: i
   )
   task_array.push create
 end
