@@ -83,12 +83,15 @@ class ProjectsController < ApplicationController
   end
 
   def project_priority_update
-    project = Project.find_by(params[:project_id])
+    # puts "++++++++++++"
+    # p params[:project_id]
+    # puts "++++++++++++"
+    project = Project.find(params[:project_id])
 
     project.update(
       priority: params[:priority]
     )
-    render json: project, include: ['users']
+    # render json: project, include: ['users']
   end
 
   private

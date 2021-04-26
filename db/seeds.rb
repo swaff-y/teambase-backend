@@ -25,7 +25,7 @@ project_array = []
     category: Faker::Games::Heroes.specialty,
     description: Faker::TvShows::GameOfThrones.quote,
     progress: rand(1..100),
-    priority: i
+    priority: rand(1..5) * i
   )
   project_array.push create
 end
@@ -39,7 +39,7 @@ task_array = []
     status: "In Progress",
     description: Faker::TvShows::GameOfThrones.quote,
     progress: rand(1..100),
-    priority: i
+    priority: rand(1..5) * i
   )
   task_array.push create
 end
