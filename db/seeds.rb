@@ -33,11 +33,21 @@ end
 puts "5 Projects Created"
 task_array = []
 15.times do |i|
+  num = rand(1..3)
+  status = ""
+  if num == 1
+    status = "New"
+  elsif num == 2
+    status = "In Progress"
+  elsif num == 3
+    status = "Complete"
+  end
+
   create = Task.create!(
     name: Faker::TvShows::GameOfThrones.character,
     start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
     due_date: 1618826614013,
-    status: "In Progress",
+    status: status,
     description: Faker::TvShows::GameOfThrones.quote,
     progress: rand(1..100),
     priority: rand(1..5) * i
