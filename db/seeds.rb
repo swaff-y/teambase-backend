@@ -3,6 +3,7 @@ Project.destroy_all
 Task.destroy_all
 Note.destroy_all
 TaskCategory.destroy_all
+ProjectCategory.destroy_all
 
 user_array = []
 5.times do
@@ -61,6 +62,15 @@ task_category_array = []
   task_category_array.push(create)
 end
 puts "5 Task categories Created"
+
+project_category_array = []
+5.times do
+  create = ProjectCategory.create!(
+    name: Faker::Job.title
+  )
+  project_category_array.push(create)
+end
+puts "5 Project categories Created"
 
 # p task_array
 set1 = 0
@@ -175,3 +185,24 @@ end
 puts "Testing task -< task_category:"
 puts "The task '#{ Task.first.name }' has category #{Task.first.task_category.name}"
 puts "The category #{ TaskCategory.last.name } has task: #{ TaskCategory.last.tasks.pluck(:name).join(', ') }"
+
+set1 = 0
+set2 = 0
+set3 = 0
+15.times do |i|
+
+  if i <= 4
+    project_category_array[set1].projects << project_array[0]
+    set1 += 1
+  elsif i > 4 && i <= 9
+    project_category_array[set2].projects << project_array[2]
+    set2 += 1
+  else
+    project_category_array[set3].projects << project_array[4]
+    set3 += 1
+  end
+end
+
+puts "Testing project -< project_category:"
+puts "The project '#{ Project.first.name }' has category #{Project.first.project_category.name}"
+puts "The category #{ ProjectCategory.last.name } has task: #{ ProjectCategory.last.projects.pluck(:name).join(', ') }"

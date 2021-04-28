@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :project_categories
   resources :notes
   resources :task_categories
   resources :tasks
