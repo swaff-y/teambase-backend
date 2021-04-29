@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/project-user/:project_id' => 'projects#user_project'
   get '/project-user-status/:project_id/:status' => 'projects#user_project_status'
   post '/project-priority-update/:project_id/:priority' => 'projects#project_priority_update'
+  post '/project-create/:user_id' => 'projects#create_project'
   post '/task-create/:project_id' => 'tasks#create_task'
   delete '/task-delete/:task_id' => 'tasks#delete_task'
   get '/task-read/:task_id' => 'tasks#read_task'

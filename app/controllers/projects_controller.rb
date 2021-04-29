@@ -90,6 +90,25 @@ class ProjectsController < ApplicationController
     )
   end
 
+  def create_project
+    project = Project.create(
+      name: params[:name],
+      due_date: params[:due_date],
+      status: params[:status],
+      progress: params[:progress],
+      category: params[:category],
+      description: params[:description]
+    )
+
+    params[:assignees].each do |assignee|
+      user = User.find_by(id: assignee)
+      project.users << user
+    end
+    ProjectCategory.find_by(id: params[:category]).projects << project
+
+    render json: project, include: ['users','project_category']
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
