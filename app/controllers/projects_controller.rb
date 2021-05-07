@@ -109,6 +109,46 @@ class ProjectsController < ApplicationController
     render json: project, include: ['users','project_category']
   end
 
+  def project_delete
+    project = Project.find(params[:project_id])
+    project.destroy
+  end
+
+  def update_project
+    project = Project.find(params[:project_id])
+    project.update(
+      name: params[:name],
+      status: params[:due_date],
+      progress: params[:progress],
+      description: params[:description],
+      due_date: params[:due_date]
+    )
+
+    category = ProjectCategory.find_by(id: params[:category])
+    if category
+      category.projects << project
+    end
+
+    all_users = project.users.all
+    all_users.each do |user|
+      if user
+        project.users.delete user
+      end
+    end
+
+    params[:assignees].each do |assignee|
+      user = User.find_by(id: assignee)
+      if user
+        project.users << user
+      end
+    end
+  end
+
+  def project_read
+    project = Project.find(params[:project_id])
+    render json: project, include: ['users','project_category']
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
