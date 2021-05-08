@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :projects
 
   get '/projects-user/:user' => 'projects#user_projects'
+  get '/user-one/:user' => 'users#user_one'
   get '/project-read/:project_id' => 'projects#project_read'
   delete '/project-delete/:project_id' => 'projects#project_delete'
   get '/project-user/:project_id' => 'projects#user_project'
