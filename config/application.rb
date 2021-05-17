@@ -23,11 +23,12 @@ module Backend
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.autoloader = :classic
 
     config.middleware.insert_before 0, Rack::Cors do
         allow do
             origins '*'
-            resource '*', headers: :any, methods: [:get, :post, :options, :delete]
+            resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
         end
     end
 

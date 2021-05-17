@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'user_token' => 'user_token#create'
   resources :project_categories
   resources :notes
   resources :task_categories
@@ -9,6 +10,15 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
   resources :users
   resources :projects
+
+# todo
+  # scope '/auth' do
+  #   post '/signin' => 'user_token#create'
+  #   # api routes
+  # end
+  post '/user_token' => 'user_token#create'
+  post '/user_login' => 'users#user_login'
+
 
   get '/projects-user/:user' => 'projects#user_projects'
   get '/user-one/:user' => 'users#user_one'
