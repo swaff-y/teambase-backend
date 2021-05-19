@@ -119,6 +119,10 @@ class TasksController < ApplicationController
         task.users << user
       end
     end
+
+    render json: {
+      success: true
+    }
   end
 
   def task_priority_update
@@ -127,6 +131,10 @@ class TasksController < ApplicationController
     task.update(
       priority: params[:priority]
     )
+
+    render json: {
+      success: true
+    }
   end
 
   private
