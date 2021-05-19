@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get '/task-read/:task_id' => 'tasks#read_task'
   post '/task-update/:task_id' => 'tasks#update_task'
   post '/project-update/:project_id' => 'projects#update_project'
-  post '/task-priority-update/:task_id/:priority' => 'tasks#task_priority_update'
+  post '/task-priority-update' => 'tasks#task_priority_update'
   post '/note-create/:task_id/:user_id' => 'notes#create_note'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
